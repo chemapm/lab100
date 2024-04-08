@@ -13,11 +13,15 @@ class Config:
 
 class DevelopmentConfig(Config):
     DEBUG = True
-    SQLALCHEMY_DATABASE_URI = "postgresql://myuser:mypassword@localhost:5432/mydatabase"
+    SQLALCHEMY_DATABASE_URI = (
+        "postgresql://myuser:mypassword@localhost:5432/mydatabase"
+    )
+
 
 class TestingConfig(Config):
     TESTING = True
     SQLALCHEMY_DATABASE_URI = "sqlite:///:memory:"
+
 
 class ProductionConfig(Config):
     DEBUG = False
