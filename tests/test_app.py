@@ -1,7 +1,6 @@
 # tests/test_app.py
 from app.models import Data
 from app import create_app, db
-import json
 
 
 def test_insert_data(client):
