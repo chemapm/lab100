@@ -17,9 +17,12 @@ pipeline {
         }
         stage('Ejecución de tests') {
             steps {
-                sh 'pip install -r requirements.txt'
-                sh 'coverage run -m pytest'
-                sh 'coverage report -m'
+                withPythonEnv('/usr/bin/python3.8') {
+                 sh '''pip install -r requirements.txt
+                       coverage run -m pytest
+                       coverage report -m
+                    '''
+                }
             }
         }
         stage('Proceso de lintado (linting)') {
