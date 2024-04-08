@@ -20,6 +20,12 @@ pipeline {
                 sh 'python3 --version'
             }
         }
+        stage('Crear y activar Entorno Virtual') {
+            steps {
+                sh 'python3 -m venv local'
+                sh 'source local/bin/activate'
+            }
+        }
         stage('Ejecución de tests') {
             steps {
                 sh 'pip install -r requirements.txt'
