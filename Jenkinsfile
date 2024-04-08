@@ -22,12 +22,10 @@ pipeline {
         }
         stage('Ejecución de tests') {
             steps {
-                withPythonEnv('python') {
-                 sh '''pip install -r requirements.txt
-                       coverage run -m pytest
-                       coverage report -m
-                    '''
-                }
+                sh '''pip install -r requirements.txt
+                   coverage run -m pytest
+                   coverage report -m
+                   '''
             }
         }
         stage('Proceso de lintado (linting)') {
