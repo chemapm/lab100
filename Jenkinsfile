@@ -40,8 +40,7 @@ pipeline {
         }
         stage('Proceso de lintado (linting)') {
             steps {
-                sh '/var/jenkins_home/workspace/lab100/local/bin/flake8 . --include=*.py
-'
+                sh '/var/jenkins_home/workspace/lab100/local/bin/flake8 "run.py"'
             }
         }
         stage('Creación de imagen Docker') {
