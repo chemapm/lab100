@@ -17,7 +17,7 @@ pipeline {
         }
         stage('Version') {
             steps {
-                sh 'pyhton3 --version'
+                sh 'python3 --version'
             }
         }
         stage('Ejecución de tests') {
