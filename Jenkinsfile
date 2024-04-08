@@ -17,7 +17,7 @@ pipeline {
         }
         stage('Ejecución de tests') {
             steps {
-                withPythonEnv('/usr/bin/python3.8') {
+                withPythonEnv('python') {
                  sh '''pip install -r requirements.txt
                        coverage run -m pytest
                        coverage report -m
