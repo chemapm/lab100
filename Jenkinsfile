@@ -29,7 +29,7 @@ pipeline {
         }
         stage('Ejecución de tests') {
             steps {
-                sh '. local/bin/pip install -r requirements.txt'
+                sh 'local/bin/pip install -r requirements.txt'
             }
         }
         stage('Proceso de lintado (linting)') {
