@@ -22,6 +22,7 @@ pipeline {
         }
         stage('Crear y activar Entorno Virtual') {
             steps {
+                sh 'sudo apt install python3.11-venv'
                 sh 'python3 -m venv local'
                 sh 'source local/bin/activate'
             }
