@@ -27,9 +27,13 @@ pipeline {
                 sh '. local/bin/activate'
             }
         }
-        stage('Ejecución de tests') {
+        stage('Instalacion de requirements') {
             steps {
                 sh 'local/bin/pip install -r requirements.txt'
+            }
+        }
+        stage('Ejecución de tests') {
+            steps {
                 sh '/var/jenkins_home/workspace/lab100/local/bin/coverage run -m pytest'
                 sh '/var/jenkins_home/workspace/lab100/local/bin/coverage report -m'
             }
