@@ -6,7 +6,6 @@ class Config:
     SECRET_KEY = os.environ.get("SECRET_KEY", "your_secret_key")
 
     # Database configuration
-    SQLALCHEMY_DATABASE_URI = os.environ.get("DATABASE_URI")
     SQLALCHEMY_TRACK_MODIFICATIONS = False
 
     # Add other configuration variables as needed
@@ -14,7 +13,11 @@ class Config:
 
 class DevelopmentConfig(Config):
     DEBUG = True
+    SQLALCHEMY_DATABASE_URI = "postgresql://myuser:mypassword@localhost:5432/mydatabase"
 
+class TestingConfig(Config):
+    TESTING = True
+    SQLALCHEMY_DATABASE_URI = "sqlite:///:memory:"
 
 class ProductionConfig(Config):
     DEBUG = False
@@ -25,5 +28,5 @@ class ProductionConfig(Config):
 config_dict = {
     "development": DevelopmentConfig,
     "production": ProductionConfig,
-    # Add other environments if needed
+    "testing": TestingConfig,
 }
