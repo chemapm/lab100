@@ -1,7 +1,8 @@
-# tests/test_routes.py
-from app import create_app, db
+# tests/test_app.py
 from app.models import Data
+from app import create_app, db
 import json
+
 
 def test_insert_data(client):
     data = {"name": "Test Data"}
@@ -9,10 +10,12 @@ def test_insert_data(client):
     assert response.status_code == 200
     assert response.json == {"message": "Data inserted successfully"}
 
+
 def test_get_all_data(client):
     response = client.get('/data')
     assert response.status_code == 200
     assert isinstance(response.json, list)
+
 
 def test_delete_data(client):
     data = {"name": "Test Data"}
@@ -25,6 +28,7 @@ def test_delete_data(client):
 
 # tests/test_models.py
 from app.models import Data
+
 
 def test_data_model():
     data = Data(name="Test Data")
