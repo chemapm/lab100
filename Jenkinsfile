@@ -15,6 +15,11 @@ pipeline {
                 url: 'https://github.com/chemapm/lab100.git'
             }
         }
+        stage('Version') {
+            steps {
+                sh 'pyhton3 --version'
+            }
+        }
         stage('Ejecución de tests') {
             steps {
                 withPythonEnv('python') {
