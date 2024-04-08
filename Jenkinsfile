@@ -1,10 +1,18 @@
 pipeline {
+    environment {
+        registry = "chemapm/lab100"
+        registryCredential = 'b7c76036-c919-4172-8aa9-0727c30ef20e'
+        dockerImage = ''
+    }
+
     agent any
 
     stages {
         stage('Clonado de código fuente') {
             steps {
-                git credentialsId: 'bbc43dbe-0883-4786-9b1b-eed84b178421', url: 'https://github.com/chemapm/lab100.git'
+                git branch: 'main',
+                credentialsId: 'bbc43dbe-0883-4786-9b1b-eed84b178421',
+                url: 'https://github.com/chemapm/lab100.git'
             }
         }
         stage('Ejecución de tests') {
@@ -22,7 +30,7 @@ pipeline {
         stage('Creación de imagen Docker') {
             steps {
                 script {
-                    docker.build('test')
+                    dockerImage = docker.build registry + ":$BUILD_NUMBER"
                 }
             }
         }
@@ -36,7 +44,7 @@ pipeline {
             }
             steps {
                 script {
-                    docker.withRegistry('', 'b7c76036-c919-4172-8aa9-0727c30ef20e') {
+                    docker.withRegistry( '', registryCredential ) {
                         dockerImage.push()
                     }
                 }
