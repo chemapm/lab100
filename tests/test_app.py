@@ -24,10 +24,6 @@ def test_delete_data(client):
     assert response.json == {"message": "Data deleted successfully"}
 
 
-# tests/test_models.py
-from app.models import Data
-
-
 def test_data_model():
     data = Data(name="Test Data")
     assert data.name == "Test Data"
