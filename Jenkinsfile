@@ -4,7 +4,7 @@ pipeline {
     stages {
         stage('Clonado de código fuente') {
             steps {
-                git credentialsId: 'bbc43dbe-0883-4786-9b1b-eed84b178421', url: 'https://github.com/chemapm/lab100.git'
+                git credentialsId: 'bbc43dbe-0883-4786-9b1b-eed84b178421', url: 'https://github.com/chemapm/lab100/blob/main/Jenkinsfile.git'
             }
         }
         stage('Ejecución de tests') {
