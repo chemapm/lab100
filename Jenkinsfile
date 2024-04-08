@@ -1,9 +1,9 @@
 pipeline {
-   /* environment {
+    environment {
         registry = "chema545/lab100"
         registryCredential = 'b7c76036-c919-4172-8aa9-0727c30ef20e'
         dockerImage = ''
-    }*/
+    }
 
     agent any
 
@@ -40,7 +40,8 @@ pipeline {
         }
         stage('Proceso de lintado (linting)') {
             steps {
-                sh '/var/jenkins_home/workspace/lab100/local/bin/flake8 "Jenkinsfile"'
+                sh '/var/jenkins_home/workspace/lab100/local/bin/flake8 . --include=*.py
+'
             }
         }
         stage('Creación de imagen Docker') {
