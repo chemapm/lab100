@@ -1,8 +1,8 @@
 pipeline {
     environment {
-        //registry = "chema545/lab100"
-        //registryCredential = 'b7c76036-c919-4172-8aa9-0727c30ef20e'
-        //dockerImage = ''
+        registry = "chema545/lab100"
+        registryCredential = 'b7c76036-c919-4172-8aa9-0727c30ef20e'
+        dockerImage = ''
     }
 
     agent any
