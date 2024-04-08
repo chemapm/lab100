@@ -30,6 +30,8 @@ pipeline {
         stage('Ejecución de tests') {
             steps {
                 sh 'local/bin/pip install -r requirements.txt'
+                sh 'coverage run -m pytest'
+                sh 'coverage report -m'
             }
         }
         stage('Proceso de lintado (linting)') {
