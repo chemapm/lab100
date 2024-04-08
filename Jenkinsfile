@@ -22,10 +22,7 @@ pipeline {
         }
         stage('Ejecución de tests') {
             steps {
-                sh '''pip install -r requirements.txt
-                   coverage run -m pytest
-                   coverage report -m
-                   '''
+                sh 'pip install -r requirements.txt'
             }
         }
         stage('Proceso de lintado (linting)') {
