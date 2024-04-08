@@ -24,7 +24,7 @@ pipeline {
             steps {
                 //sh 'apt install python3.11-venv'
                 sh 'python3 -m venv local'
-                sh 'source local/bin/activate'
+                sh '. local/bin/activate'
             }
         }
         stage('Ejecución de tests') {
