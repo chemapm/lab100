@@ -52,6 +52,13 @@ pipeline {
             }
         }
         stage('Subida del resultado a Docker Hub') {
+            /* when {
+                anyOf {
+                    branch 'develop'
+                    branch 'master'
+                    branch 'main'
+                }
+            } */
             steps {
                 script {
                     docker.withRegistry('', registryCredential) {
