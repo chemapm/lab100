@@ -19,7 +19,7 @@ class DevelopmentConfig(Config):
 
 
 class TestingConfig(Config):
-    TESTING = True
+    #TESTING = True
     SQLALCHEMY_DATABASE_URI = "postgresql://myuser:mypassword@localhost:5432/mydatabasetest"
 
 
