@@ -1,7 +1,7 @@
 pipeline {
     environment {
         registry = "chema545/lab100"
-        registryCredential = 'b7c76036-c919-4172-8aa9-0727c30ef20e'
+        registryCredential = 'a3500577-ba66-4d5a-9987-9810f477aacc'
         dockerImage = ''
     }
 
@@ -11,7 +11,7 @@ pipeline {
         stage('Clonado de código fuente') {
             steps {
                 git branch: 'main',
-                credentialsId: 'bbc43dbe-0883-4786-9b1b-eed84b178421',
+                credentialsId: 'GitHub',
                 url: 'https://github.com/chemapm/lab100.git'
             }
         }
@@ -54,7 +54,7 @@ pipeline {
         stage('Subida del resultado a Docker Hub') {
             steps {
                 script {
-                    docker.withRegistry( '', registryCredential ) {
+                    docker.withRegistry('', registryCredential) {
                         dockerImage.push()
                     }
                 }
