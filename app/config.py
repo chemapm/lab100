@@ -39,5 +39,5 @@ config_dict = {
     "development": DevelopmentConfig,
     "production": ProductionConfig,
     "testing": TestingConfig,
-#   "local": Localtest,
+# "local": Localtest,
 }
