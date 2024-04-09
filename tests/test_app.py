@@ -1,5 +1,5 @@
 # tests/test_app.py
-from app.models import Data
+from app.models import Data  # Mueve el import aquí
 
 
 def test_insert_data(client):
