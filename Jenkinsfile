@@ -46,9 +46,7 @@ pipeline {
         stage('Creación de imagen Docker') {
             steps {
                 script {
-                    docker.image('docker:latest').inside {
-                        sh 'docker build -t registry:$BUILD_NUMBER .'
-                    }
+                    dockerImage = docker.build "$registry:$BUILD_NUMBER"
                 }
             }
         }
