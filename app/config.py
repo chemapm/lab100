@@ -20,7 +20,7 @@ class DevelopmentConfig(Config):
 
 class TestingConfig(Config):
     TESTING = True
-    SQLALCHEMY_DATABASE_URI = "sqlite:///:memory:"
+    SQLALCHEMY_DATABASE_URI = "postgresql://myuser:mypassword@localhost:5432/mydatabasetest"
 
 
 class ProductionConfig(Config):
