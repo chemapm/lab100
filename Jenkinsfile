@@ -47,7 +47,6 @@ pipeline {
             steps {
                 script {
                     dockerImage = docker.build("$registry:$BUILD_NUMBER")
-                    echo "La rama actual es: ${env.BRANCH_NAME}"
                 }
             }
         }
