@@ -14,7 +14,7 @@ class Config:
 class DevelopmentConfig(Config):
     DEBUG = True
     SQLALCHEMY_DATABASE_URI = (
-        "postgresql://myuser:mypassword@localhost:5432/mydatabase"
+        "postgresql://myuser:mypassword@localhost:5432/mydatabasetest"
     )
 
 
@@ -23,15 +23,11 @@ class TestingConfig(Config):
     SQLALCHEMY_DATABASE_URI = "sqlite:///:memory:"
 
 
-# class Localtest(Config):
-#     DEBUG = True
-#     SQLALCHEMY_DATABASE_URI = (
-#         "postgresql://myuser:mypassword@localhost:5432/mydatabasetest"
-#     )
-
-
 class ProductionConfig(Config):
-    DEBUG = False
+    DEBUG = True
+    SQLALCHEMY_DATABASE_URI = (
+        "postgresql://myuser:mypassword@localhost:5432/mydatabase"
+    )
 
 
 # Dictionary to map environment names to configuration classes
@@ -39,5 +35,4 @@ config_dict = {
     "development": DevelopmentConfig,
     "production": ProductionConfig,
     "testing": TestingConfig,
-    # "local": Localtest,
 }
