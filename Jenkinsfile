@@ -22,7 +22,6 @@ pipeline {
         }
         stage('Crear y activar Entorno Virtual') {
             steps {
-                //sh 'apt install python3.11-venv'
                 sh 'python3 -m venv local'
                 sh '. local/bin/activate'
             }
@@ -51,13 +50,12 @@ pipeline {
             }
         }
         stage('Subida del resultado a Docker Hub') {
-            /* when {
+            when {
                 anyOf {
                     branch 'develop'
-                    branch 'master'
                     branch 'main'
                 }
-            } */
+            }
             steps {
                 script {
                     docker.withRegistry('', registryCredential) {
