@@ -30,9 +30,17 @@ class ProductionConfig(Config):
     )
 
 
+class LocalTestConfig(Config):
+    DEBUG = True
+    SQLALCHEMY_DATABASE_URI = (
+        "postgresql://myuser:mypassword@localhost:5432/mydatabaselocal"
+    )
+
+
 # Dictionary to map environment names to configuration classes
 config_dict = {
     "development": DevelopmentConfig,
     "production": ProductionConfig,
     "testing": TestingConfig,
+    "local": LocalTestConfig,
 }
