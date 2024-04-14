@@ -10,9 +10,10 @@ pipeline {
     stages {
         stage('Clonado de código fuente') {
             steps {
-                git branch: ['main','develop'],
-                credentialsId: 'GitHub',
-                url: 'https://github.com/chemapm/lab100.git'
+                checkout scmGit(branches: [[name: '*/main'], [name: '*/develop']], 
+                extensions: [], 
+                userRemoteConfigs: [[credentialsId: 'GitHub', 
+                url: 'https://github.com/chemapm/lab100.git']])
             }
         }
         stage('Version') {
