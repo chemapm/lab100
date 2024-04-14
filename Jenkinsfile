@@ -10,7 +10,7 @@ pipeline {
     stages {
         stage('Clonado de código fuente') {
             steps {
-                git branch: 'main',
+                git branch: ['main','develop'],
                 credentialsId: 'GitHub',
                 url: 'https://github.com/chemapm/lab100.git'
             }
