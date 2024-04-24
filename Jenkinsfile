@@ -17,28 +17,21 @@ pipeline {
             }
         }
         stage('Imagen python') {
-            agent{
-                docker{
+            agent {
+                docker {
                     image 'python:3.9-slim'
                 }
             }
-            stages{
-                stage('Instalacion de requirements') {
-                    steps {
-                        sh 'local/bin/pip install -r requirements.txt --user'
-                    }
-                }
-                stage('Ejecución de tests') {
-                    steps {
-                        sh 'coverage run -m pytest'
-                        sh 'coverage report -m'
-                    }
-                }
-                stage('Proceso de lintado (linting)') {
-                    steps {
-                        sh 'flake8 **/*.py'
-                    }
-                }
+            steps {
+                // Instalación de requerimientos
+                sh 'pip install -r requirements.txt'
+                
+                // Ejecución de tests
+                sh 'coverage run -m pytest'
+                sh 'coverage report -m'
+
+                // Proceso de lintado
+                sh 'flake8 **/*.py'
             }
         }
         stage('Creación de imagen Docker') {
