@@ -6,7 +6,7 @@ import pytest
 
 @pytest.fixture
 def app():
-    app = create_app('testing')
+    app = create_app(SqLiteTestConfig)
     with app.app_context():
         db.create_all()
         yield app
