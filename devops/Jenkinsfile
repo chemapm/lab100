@@ -25,7 +25,9 @@ pipeline {
             stages{
                 stage('Instalacion de requirements') {
                     steps {
-                        sh 'pip install -r requirements.txt'
+                        dir('lab100'){
+                            sh 'pip install -r requirements.txt'
+                        }
                     }
                 }
                 stage('Ejecución de tests') {
