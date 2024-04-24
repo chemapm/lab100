@@ -3,7 +3,7 @@ version: '3.8'
 services:
   app:
     build:
-      dockerfile: Dockerfile
+      dockerfile: ./Dockerfile
       context: ../
     ports:
       - "5000:5000"
