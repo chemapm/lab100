@@ -25,9 +25,7 @@ pipeline {
             stages{
                 stage('Instalacion de requirements') {
                     steps {
-                        dir('lab100'){
-                            sh 'pip3 install -r requirements.txt --user'
-                        }
+                        sh 'local/bin/pip install -r requirements.txt --user'
                     }
                 }
                 stage('Ejecución de tests') {
