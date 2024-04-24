@@ -16,31 +16,27 @@ pipeline {
                 url: 'https://github.com/chemapm/lab100.git']])
             }
         }
-        stage('Version') {
-            steps {
-                sh 'python3 --version'
-            }
-        }
-        stage('Crear y activar Entorno Virtual') {
-            steps {
-                sh 'python3 -m venv local'
-                sh '. local/bin/activate'
+        stage('Imagen python') {
+            agent{
+                docker{
+                    image 'python:3.9-slim'
+                }
             }
         }
         stage('Instalacion de requirements') {
             steps {
-                sh 'local/bin/pip install -r requirements.txt'
+                sh 'pip install -r requirements.txt'
             }
         }
         stage('Ejecución de tests') {
             steps {
-                sh '/var/jenkins_home/workspace/lab100/local/bin/coverage run -m pytest'
-                sh '/var/jenkins_home/workspace/lab100/local/bin/coverage report -m'
+                sh 'coverage run -m pytest'
+                sh 'coverage report -m'
             }
         }
         stage('Proceso de lintado (linting)') {
             steps {
-                sh '/var/jenkins_home/workspace/lab100/local/bin/flake8 **/*.py'
+                sh 'flake8 **/*.py'
             }
         }
         stage('Creación de imagen Docker') {

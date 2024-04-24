@@ -1,9 +1,12 @@
 import os
 
 from app import create_app
+from app. config import config_dict
 
 
 env_name = os.getenv("FLASK_ENV", "development")
+
+config = config_dict[env_game]
 app = create_app(env_name)
 
 if __name__ == "__main__":

@@ -14,7 +14,7 @@ class Config:
 class DevelopmentConfig(Config):
     DEBUG = True
     SQLALCHEMY_DATABASE_URI = (
-        "postgresql://myuser:mypassword@localhost:5432/mydatabasetest"
+        "postgresql://myuser:mypassword@db/mydatabasetest"
     )
 
 
@@ -26,14 +26,14 @@ class TestingConfig(Config):
 class ProductionConfig(Config):
     DEBUG = True
     SQLALCHEMY_DATABASE_URI = (
-        "postgresql://myuser:mypassword@localhost:5432/mydatabase"
+        "postgresql://myuser:mypassword@db/mydatabase"
     )
 
 
 class LocalTestConfig(Config):
     DEBUG = True
     SQLALCHEMY_DATABASE_URI = (
-        "postgresql://myuser:mypassword@localhost:5432/mydatabaselocal"
+        "postgresql://myuser:mypassword@db/mydatabaselocal"
     )
 
 
