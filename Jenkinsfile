@@ -25,7 +25,7 @@ pipeline {
             stages{
                 stage('Instalacion de requirements') {
                     steps {
-                        sh 'pip3 install -r requirements.txt'
+                        sh 'pip3 install -r requirements.txt --user'
                     }
                 }
                 stage('Ejecución de tests') {
