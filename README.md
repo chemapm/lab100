@@ -2,7 +2,7 @@
 Se ha creado un repositorio en GitHub desde el que cada integrante del equipo puede acceder para obtener los archivos que conforman la aplicación.
     Acceso: https://github.com/chemapm/lab100.git
     git clone https://github.com/chemapm/lab100.git
-Se trabajará en 2 entornos, uno de producción sobre el cual está el trabajo real en ejecución al que acceden los usuarios y uno de desarrollo el cual será una copia del entorno de producción, y será la base sobre el que los integrantes trabajarán. Por último, cada integrante desarrollará su trabajo en local, y una vez testeado y aprobado se actualizará en el entorno de desarrollo para que el resto del equipo tenga acceso. 
+Se trabajará en 2 entornos, uno de producción sobre el cual está el trabajo real en ejecución al que acceden los usuarios y uno de desarrollo el cual será una copia del entorno de producción, y será la base sobre el que los integrantes trabajarán. Por último cada integrante desarrollará su trabajo en local, y una vez testeado y aprobado se actualizará en el entorno de desarrollo para que el resto del equipo tenga acceso. 
 Una vez clonado el repositorio GitHub instalar dependencias:
     pip install -r requirements.txt
 Para poder actualizar la aplicación primero ha de probarse que pasa los test en local y que cubre al menos el 80% de las líneas de código. En estos test se comprueba que se puede añadir, eliminar y ver los datos, además del funcionamiento del modelo.
